@@ -35,7 +35,31 @@ Preferred: set your domain document root to:
 .../laravel-hostingsr-app/public
 ```
 
-If Hostingsr does not allow that, copy `public/*` into `public_html` and update `index.php` paths to point to the app folder.
+If Hostingsr does not allow that, keep the Laravel project folder outside `public_html` and copy only `public/*` into `public_html`.
+
+Recommended structure for this fallback:
+
+```text
+home/username/
+  laravel-hostingsr-app/      <- full Laravel project (private)
+    app/
+    bootstrap/
+    config/
+    storage/
+    vendor/
+  public_html/                <- web-accessible only
+    index.php
+    .htaccess
+    favicon.ico
+    robots.txt
+```
+
+Then update `public_html/index.php` so it points to the project folder:
+
+```php
+require __DIR__.'/../laravel-hostingsr-app/vendor/autoload.php';
+$app = require_once __DIR__.'/../laravel-hostingsr-app/bootstrap/app.php';
+```
 
 ## 4) Set permissions
 
