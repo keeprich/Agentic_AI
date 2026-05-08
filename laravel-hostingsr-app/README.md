@@ -4,7 +4,7 @@ This is a ready-to-upload Laravel starter app designed for shared hosting deploy
 
 ## Requirements
 
-- PHP 8.2+ with common Laravel extensions
+- PHP 8.3+ with common Laravel extensions
 - Composer support on server (or run Composer locally before upload)
 - MySQL (optional for this starter page)
 
